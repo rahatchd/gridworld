@@ -3,7 +3,29 @@ from agent import Agent
 
 import matplotlib.pyplot as plt
 
-if __name__ == "__main__":
+
+def demonstrate_learning():
+    env = Environment()
+    agent = Agent(env)
+
+    episodes = []
+
+    episode_length = 0
+    for n in range(1 * 10 ** 4):
+        reward = agent.step()
+        episode_length += 1
+        if reward == 1:
+            episodes.append(episode_length)
+            episode_length = 0
+
+    plt.plot(episodes)
+    plt.title('Q-Learning Results')
+    plt.xlabel('Episode Number')
+    plt.ylabel('Steps to Goal')
+    plt.show()
+
+
+def demonstrate_adaptation():
     env = Environment()
     agent = Agent(env)
 
@@ -18,4 +40,11 @@ if __name__ == "__main__":
             episode_length = 0
 
     plt.plot(episodes)
+    plt.title('Q-Learning Adaptation to Obstacle Change')
+    plt.xlabel('Episode Number')
+    plt.ylabel('Steps to Goal')
     plt.show()
+
+
+if __name__ == "__main__":
+    demonstrate_adaptation()
