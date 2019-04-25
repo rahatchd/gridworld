@@ -57,3 +57,10 @@ I am able to demonstrate that the learning rate speeds up proportional to the nu
 
 <img src="img/async-q-learn.png" width="500"/>
 
+### Recommendations
+For Part 1, one can optimize the learning rate and exploration/exploitation parameters using a parameter sweep instead of guess and check like done here.
+
+For Part 2, one should investigate the reason behind the diminishing returns after a certain number of agents. I suspect it has to do with the fact that you have too many agents saturating the possible policy corrections.
+
+In terms of features, the next step is to add a database/storage system that can record and update the policy of an agent over a long period of time.
+
