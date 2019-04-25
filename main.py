@@ -2,6 +2,7 @@ from environment import Environment
 from agent import Agent, AgentManager
 
 from constants import REWARD_GOAL
+from constants import STOP
 
 import matplotlib.pyplot as plt
 
@@ -49,8 +50,33 @@ def demonstrate_adaptation():
 
 
 def demonstrate_async_speedup():
-    am = AgentManager(5)
-    print am.global_policy
+    manager = AgentManager(1)
+    episodes = []
+    for i in iter(manager.episodes.get, STOP):
+        episodes.append(i)
+
+    manager = AgentManager(5)
+    episodes1 = []
+    for i in iter(manager.episodes.get, STOP):
+        episodes1.append(i)
+
+    manager = AgentManager(10)
+    episodes2 = []
+    for i in iter(manager.episodes.get, STOP):
+        episodes2.append(i)
+
+    plt.subplot(311)
+    plt.plot(episodes)
+    plt.title('Async Q-Learning (y-axis is steps to goal)')
+    plt.ylabel('1 Agent')
+    plt.subplot(312)
+    plt.plot(episodes1)
+    plt.ylabel('5 Agents')
+    plt.subplot(313)
+    plt.plot(episodes2)
+    plt.ylabel('10 Agents')
+    plt.xlabel('Episode Number')
+    plt.show()
 
 
 if __name__ == "__main__":

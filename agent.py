@@ -92,7 +92,12 @@ class AsyncAgent(Agent):
         self.policy[self.state[0], self.state[1], choice] += reward + self.gamma * next_expected_reward - current_policy
 
     def step(self):
-        reward = Agent.step(self)
+        choice = self._choose_action()
+        action = self.action_labels[choice]
+        updated_state, reward = self.environment.step(action)
+        self._update_policy(choice, updated_state, reward)
+        self.state = updated_state
+
         self.step_num += 1
         if (self.step_num % self.async_update) == 0:
             with self.lock:
@@ -136,14 +141,3 @@ class AgentManager:
                 with self.ep_lock:
                     self.episodes.put(episode_length)
                 episode_length = 0
-
-
-if __name__ == "__main__":
-    import matplotlib.pyplot as plt
-    m = AgentManager(5)
-    episodes = []
-    for i in iter(m.episodes.get, STOP):
-        episodes.append(i)
-    plt.plot(episodes)
-    plt.show()
-

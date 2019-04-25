@@ -52,3 +52,8 @@ As seen in the figure below, there is a peak at the point when the obstacle chan
 
 <img src="img/q-adapt.png" width="500"/>
 
+#### Part 2
+I am able to demonstrate that the learning rate speeds up proportional to the number of agents, upto a point of diminishing returns - as seen in the figure below. 5 Agents is a vast improvement on 1 agent, being able to learn within the first few episodes. At 10 agents, we have slower learning. At higher agents behaviour is unpredictable.
+
+<img src="img/async-q-learn.png" width="500"/>
+
