@@ -1,6 +1,8 @@
 from environment import Environment
 from agent import Agent
 
+from constants import REWARD_GOAL
+
 import matplotlib.pyplot as plt
 
 
@@ -14,7 +16,7 @@ def demonstrate_learning():
     for n in range(1 * 10 ** 4):
         reward = agent.step()
         episode_length += 1
-        if reward == 1:
+        if reward == REWARD_GOAL:
             episodes.append(episode_length)
             episode_length = 0
 
@@ -35,7 +37,7 @@ def demonstrate_adaptation():
     for n in range(4 * 10 ** 4):
         reward = agent.step()
         episode_length += 1
-        if reward == 1:
+        if reward == REWARD_GOAL:
             episodes.append(episode_length)
             episode_length = 0
 

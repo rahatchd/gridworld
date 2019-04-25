@@ -12,3 +12,6 @@ ACTIONS = {
     "left": np.array([0, -1], dtype=int),
     "right": np.array([0, 1], dtype=int)
 }
+
+REWARD_GOAL = 1
+REWARD_NON_GOAL = 0

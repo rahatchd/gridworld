@@ -3,14 +3,14 @@ import numpy as np
 from constants import ACTIONS
 from constants import GRID_HEIGHT, GRID_WIDTH, START
 
+from constants import REWARD_GOAL, REWARD_NON_GOAL
+
 GOAL = np.array([0, 8], dtype=int)
 
 INITIAL_OBSTACLES = [np.array([3, i], dtype=int) for i in range(0, 8)]
 NEW_OBSTACLES = [np.array([3, i], dtype=int) for i in range(1, 9)]
 OBSTACLE_CHANGE = 8000
 
-REWARD_GOAL = 1
-REWARD_NON_GOAL = 0
 
 
 class Environment:
