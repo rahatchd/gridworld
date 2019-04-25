@@ -1,5 +1,5 @@
 from environment import Environment
-from agent import Agent
+from agent import Agent, AgentManager
 
 from constants import REWARD_GOAL
 
@@ -48,5 +48,10 @@ def demonstrate_adaptation():
     plt.show()
 
 
+def demonstrate_async_speedup():
+    am = AgentManager(5)
+    print am.global_policy
+
+
 if __name__ == "__main__":
-    demonstrate_adaptation()
+    demonstrate_async_speedup()

@@ -12,7 +12,6 @@ NEW_OBSTACLES = [np.array([3, i], dtype=int) for i in range(1, 9)]
 OBSTACLE_CHANGE = 8000
 
 
-
 class Environment:
 
     def __init__(self):
