@@ -45,8 +45,12 @@ class Environment:
 
         self._update_state(action)
         # if agent reaches the goal then reinitialize it
-        updated_state = np.copy(self.start) if np.all(self.state == self.goal) else np.copy(self.state)
-        reward = REWARD_GOAL if np.all(self.state == self.goal) else REWARD_NON_GOAL
+        if np.all(self.state == self.goal):
+            updated_state = np.copy(self.start)
+            reward = REWARD_GOAL
+        else:
+            updated_state = np.copy(self.state)
+            reward = REWARD_NON_GOAL
         self.state = updated_state
         return updated_state, reward
 
