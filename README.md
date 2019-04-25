@@ -11,6 +11,7 @@ Objective is to use Q-Learning to train an agent to beat Gridworld, a 2 dimensio
 * `environment.py` Gridworld environment with obstacles, start and goal states, and a reward function
 * `agent.py` agent that uses Q-Learning to traverse Gridworld
 * `consants.py` constants shared across environment and agent
+* `tests.py` includes unit tests for deterministic functions
 * `requirments.txt` required python modules and dependencies
 
 ### Installing
@@ -30,6 +31,12 @@ Use `main.py` to run experiments.
 > $ pythonw main.py
 > ```
 
+### Testing
+To run unit tests on the environment, run
+```{bash}
+$ pytest tests.py
+```
+There is not much on the agent we can test because its update policy is simply a mathematical formula, and its behaviour is non-deterministic. The agent's progress is demonstrated statistically instead using graphs.
 
 ### Results
 #### Part 1
