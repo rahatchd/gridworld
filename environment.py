@@ -41,6 +41,7 @@ class Environment:
         if not self.obstacle_flag and self.step_num > OBSTACLE_CHANGE:
             self.obstacles = NEW_OBSTACLES
             self.obstacle_flag = True
+        self.step_num += 1
 
         self._update_state(action)
         # if agent reaches the goal then reinitialize it
